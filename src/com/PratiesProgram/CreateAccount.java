@@ -1,0 +1,50 @@
+package com.PratiesProgram;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateAccount {
+	public static void main(String[] args) throws Throwable {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\KARTHIK SURYA\\eclipse-workspace\\Selenium_Tool\\Driver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+
+		WebElement create = driver.findElement(By.xpath("//a[@data-testid='open-registration-form-button']"));
+		create.click();
+		Thread.sleep(4000);
+		WebElement f1 = driver.findElement(By.xpath("//input[@aria-label='First name']"));
+		f1.sendKeys("Karthik");
+
+		WebElement f2 = driver.findElement(By.xpath("//input[@name='lastname']"));
+		f2.sendKeys("Surya");
+
+		WebElement email = driver.findElement(By.xpath("//input[@aria-label='Mobile number or email address']"));
+		email.sendKeys("ks8667345@gmail.com");
+
+		WebElement email1 = driver.findElement(By.xpath("//input[@aria-label='Re-enter email address']"));
+		email1.sendKeys("ks8667345@gmail.com");
+
+		WebElement pass = driver.findElement(By.xpath("//input[@data-type='password']"));
+		pass.sendKeys("karthik2000m");
+
+		WebElement day = driver.findElement(By.xpath("//select[@aria-label='Day']"));
+		day.sendKeys("17");
+
+		WebElement month = driver.findElement(By.xpath("//select[@title='Month']"));
+		month.sendKeys("April");
+
+		WebElement year = driver.findElement(By.xpath("//select[@aria-label='Year']"));
+		year.sendKeys("2000");
+
+		WebElement gender = driver.findElement(By.xpath("(//input[@name='sex'])[2]"));
+		gender.click();
+
+		WebElement sign = driver.findElement(By.xpath("(//button[text()='Sign Up'])[1]"));
+		sign.click();
+
+	}
+}
